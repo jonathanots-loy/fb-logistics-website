@@ -149,7 +149,7 @@ function sha256(str){
     return Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
   });
 }
-var DEFAULT_PWD = 'FB2026';
+var DEFAULT_PWD = "C'estlafamille26";
 
 function checkRateLimit(){
   var lock = DB.get('login_lock', 0);
