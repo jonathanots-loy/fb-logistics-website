@@ -127,6 +127,9 @@ function renderServices(){
   var list = getServices();
   el.innerHTML = list.map(manifestRow).join('');
   wirePhotoSlots(el);
+  el.querySelectorAll('.m-row').forEach(function(row){
+    row.addEventListener('click', function(){ row.classList.toggle('open'); });
+  });
 }
 function renderServicesPreview(){
   var el = document.getElementById('svcPreview');

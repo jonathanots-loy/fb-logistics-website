@@ -232,8 +232,9 @@ nav.links a.active{color:var(--accent);border-bottom-color:var(--accent)}
   opacity:0;transform:translateY(-4px);
   transition:opacity .35s ease, transform .4s cubic-bezier(.16,1,.3,1);
 }
-.m-row:hover .m-detail{grid-template-rows:1fr}
-.m-row:hover .m-detail-inner p{opacity:1;transform:translateY(0)}
+.m-row:hover .m-detail,.m-row.open .m-detail{grid-template-rows:1fr}
+.m-row:hover .m-detail-inner p,.m-row.open .m-detail-inner p{opacity:1;transform:translateY(0)}
+.m-row{cursor:pointer}
 
 /* Forms (devis / contact) */
 .form-panel{max-width:640px}
@@ -291,14 +292,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
   .topbar{display:none}
   .nav-toggle{display:inline-flex}
   nav.links{
-    display:none;position:fixed;inset:var(--nh) 0 0 0;z-index:39;
+    display:none;position:fixed;inset:var(--nh) 0 0 0;height:calc(100vh - var(--nh));z-index:39;
     background:var(--paper);flex-direction:column;align-items:flex-start;
     gap:0;padding:8px var(--ph) 24px;overflow-y:auto;
   }
   nav.links.show{display:flex}
   nav.links a{width:100%;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}
   nav.links a.active{border-bottom:1px solid var(--line);border-left:3px solid var(--accent);padding-left:12px}
-  .cover-content{max-width:92%}
+  .cover{height:auto}
+  .cover img,.cover .ph-slot,.cover .ph-fallback{position:absolute;inset:0;width:100%;height:100%}
+  .cover::after{display:none}
+  .cover-content{position:relative;max-width:100%;padding:28px var(--ph) 32px;background:var(--charcoal)}
   .field-row{flex-direction:column;gap:0}
   .feature-grid{grid-template-columns:1fr}
   .svc-preview{grid-template-columns:1fr}
