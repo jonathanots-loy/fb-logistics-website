@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FB Logistics — Suivi de dossier</title>
+<meta name="description" content="Suivez l'état de votre dossier FB Logistics : sourcing, achats et acheminement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo/fb-logistics-symbole.svg">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="suivi">
+
+<div class="topbar">
+  <div class="wrap">
+    <span data-bind="email">[email@à-definir.be]</span>
+    <span data-bind="phone">[+32 000 00 00 00]</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/logo/fb-logistics-logo-horizontal.svg" alt="FB Logistics — Tout arrive à point" class="brand-logo">
+    </a>
+    <nav class="links">
+      <a href="index.html" data-nav="accueil">Accueil</a>
+      <a href="services.html" data-nav="services">Services</a>
+      <a href="secteurs.html" data-nav="secteurs">Secteurs</a>
+      <a href="marches.html" data-nav="marches">Marchés</a>
+      <a href="apropos.html" data-nav="apropos">À propos</a>
+      <a href="suivi.html" data-nav="suivi">Suivi de dossier</a>
+      <a href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+      <button class="gear" id="openAdmin" title="Administration" aria-label="Ouvrir l'administration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="cover">
+  <img class="ph-slot" data-label="Photo de couverture — Suivi de dossier" src="images/cover-suivi.jpg" alt="">
+</div>
+
+<section class="tracking">
+  <div class="wrap">
+    <div class="head">
+      <h1>Suivre un dossier</h1>
+      <p>Entrez votre référence de dossier pour connaître l'état de votre commande.</p>
+    </div>
+    <form class="track-form" id="trackForm">
+      <input type="text" id="trackInput" placeholder="Référence dossier, ex. FB-00123" autocomplete="off" required>
+      <button type="submit" class="btn btn-primary">Suivre</button>
+    </form>
+    <div class="track-error" id="trackError"></div>
+    <div class="track-result" id="trackResult">
+      <div class="code" id="trackCode"></div>
+      <div class="track-stages" id="trackStages">
+        <div class="bar" id="trackBar"></div>
+        <div class="stage" data-stage="recu"><span class="dot"></span>Pris en charge</div>
+        <div class="stage" data-stage="transit"><span class="dot"></span>En cours</div>
+        <div class="stage" data-stage="livre"><span class="dot"></span>Livré</div>
+      </div>
+      <div class="track-meta" id="trackMeta"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong data-bind="companyName">FB Logistics</strong><br>
+      <span data-bind="address">[Adresse à définir]</span>
+      <div class="brand-slogan"><span class="rule"></span><span>TOUT ARRIVE À POINT</span><span class="rule"></span></div>
+    </div>
+    <div>
+      <span data-bind="email">[email@à-definir.be]</span> · <span data-bind="phone">[+32 000 00 00 00]</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Admin panel -->
+<div class="overlay" id="adminOverlay">
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Administration</h3>
+      <button class="panel-close" id="closeAdmin" aria-label="Fermer">×</button>
+    </div>
+    <div class="panel-body">
+
+      <div id="adminLoginView">
+        <p style="font-size:14px;color:var(--muted);margin-bottom:14px">Mot de passe requis pour modifier le catalogue de services.</p>
+        <div class="field"><label for="pwdInput">Mot de passe</label><input id="pwdInput" type="password"></div>
+        <button class="btn btn-primary" id="loginBtn">Se connecter</button>
+        <div class="admin-msg" id="loginMsg"></div>
+      </div>
+
+      <div id="adminDashView" style="display:none">
+        <div class="tabs">
+          <button class="tab active" data-tab="svc">Services</button>
+          <button class="tab" data-tab="settings">Paramètres</button>
+        </div>
+
+        <div class="tabpane active" data-pane="svc">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px">
+            Ces modifications ne sont visibles que dans ce navigateur (aperçu local). Pour un changement visible par tous les visiteurs, il faut éditer les valeurs par défaut dans le code du site et redéployer.
+          </p>
+          <div id="svcForm">
+            <div class="field"><label for="s-icon">Icône</label><select id="s-icon"></select></div>
+            <div class="field"><label for="s-title">Titre</label><input id="s-title"></div>
+            <div class="field"><label for="s-desc">Description</label><textarea id="s-desc"></textarea></div>
+            <input type="hidden" id="s-editid">
+            <button class="btn btn-primary" id="s-save">Ajouter le service</button>
+            <button class="btn btn-ghost" id="s-cancel" style="display:none">Annuler la modification</button>
+          </div>
+          <div id="svcListAdmin" style="margin-top:20px"></div>
+        </div>
+
+        <div class="tabpane" data-pane="settings">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Changer le mot de passe d'administration.</p>
+          <div class="field"><label for="np1">Nouveau mot de passe</label><input id="np1" type="password"></div>
+          <div class="field"><label for="np2">Confirmer</label><input id="np2" type="password"></div>
+          <button class="btn btn-primary" id="np-save">Mettre à jour</button>
+          <div class="admin-msg" id="settingsMsg"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

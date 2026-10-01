@@ -1,0 +1,72 @@
+PHOTOS — FB Logistics
+=================================
+
+Tous les emplacements ci-dessous sont actuellement remplis avec des photos Unsplash/Pexels
+(dossier source : C:\Users\jonat\OneDrive\Bureau\photo logistiques), redimensionnées
+et compressées pour le web. Ce sont des photos de remplacement réalistes, pas les
+vraies photos de l'entreprise — à remplacer dès que de vraies photos (équipe, bureaux,
+partenaires) seront disponibles. Ces photos de conteneurs/camions restent cohérentes
+avec le métier (sourcing/import-export/logistique) même si FB Logistics n'est pas transporteur.
+
+Chaque page a volontairement une composition différente (gros plan / plan large /
+vue aérienne / intérieur) pour éviter que le site se répète visuellement d'une page
+à l'autre.
+
+Pour remplacer une photo : dépose le nouveau fichier dans /images/ avec EXACTEMENT
+le même nom que ci-dessous (il écrase l'ancien). Rien d'autre à toucher dans le code.
+Si le fichier est absent, le site retombe automatiquement sur un emplacement "à
+compléter" stylé.
+
+Formats : .jpg recommandé. Compresser les photos avant de les déposer (viser
+~150-400 Ko pour une couverture, ~50 Ko pour une vignette) pour ne pas alourdir le site.
+
+ACCUEIL (index.html)
+  images/cover-accueil.jpg       — [rempli] camion sur route, lumière dorée — plan au sol
+  images/accueil-secondary.jpg   — [rempli] intérieur d'entrepôt automatisé — seule photo
+                                    d'intérieur du site, distincte de tout le reste
+
+SERVICES (services.html) — catalogue refondu autour du vrai métier (sourcing/4PL)
+  images/cover-services.jpg      — [rempli] vue aérienne large de terminal, lumière dorée
+  images/service-1.jpg           — [rempli] Sourcing international
+  images/service-2.jpg           — [rempli] Approvisionnement & achats
+  images/service-3.jpg           — [rempli] Import-export
+  images/service-4.jpg           — [rempli] Intermédiation commerciale
+  images/service-5.jpg           — [rempli] Conseil logistique & 4PL
+  images/service-6.jpg           — [rempli] Solutions de transport
+  NOTE : ces vignettes sont liées à la POSITION du service dans la liste (1er,
+  2e, 3e...), pas à son nom. Si l'ordre des services change dans le panel admin,
+  vérifier que chaque photo correspond toujours au bon service après coup.
+
+SECTEURS (secteurs.html) — nouvelle page
+  images/cover-secteurs.jpg      — [rempli] vue aérienne détaillée de terminal (véhicules
+                                    + conteneurs, évoque la diversité des secteurs couverts)
+
+MARCHÉS (marches.html) — nouvelle page
+  images/cover-marches.jpg       — [rempli] vue aérienne de deux porte-conteneurs + remorqueurs
+
+À PROPOS (apropos.html) — nouvelle page
+  images/cover-apropos.jpg       — [rempli] navire au quai avec petit bateau, ambiance approchable
+
+SUIVI DE DOSSIER (suivi.html) — reformulé (anciennement "suivi de colis")
+  images/cover-suivi.jpg         — [rempli] grues rouges, gros plan coucher de soleil
+
+DEVIS (devis.html) — formulaire étendu (nom entreprise, pays origine/destination,
+budget, délais, upload cahier des charges)
+  images/cover-devis.jpg         — [rempli] grues et conteneurs, plan mi-hauteur, ciel pastel
+
+CONTACT (contact.html)
+  images/cover-contact.jpg       — [rempli] camion au quai, plan au sol, crépuscule
+
+RETOUR EN ARRIÈRE
+  Les versions précédentes sont conservées dans /images/_archive/ :
+  accueil-secondary-v1.jpg (entrepôt, version actuelle), accueil-secondary-v2-diego.jpg
+  (vue aérienne terminal, remplacée), cover-suivi-v1.jpg (proue de porte-conteneurs),
+  cover-devis-v1-tomfisk.jpg (vue aérienne dorée, remplacée), cover-accueil-v1.jpg
+  (identique à l'actuelle, copie de sécurité). Pour revenir en arrière : demander, ou
+  recopier le fichier voulu de /images/_archive/ vers /images/ en retirant le suffixe.
+
+Photos disponibles en réserve (non utilisées, dans le dossier source d'origine) :
+  andy-li-CpsTAUPoScw-unsplash.jpg, chuttersnap-fN603qcEA7g-unsplash.jpg,
+  nathan-cima-MHXJ9p64Jw8-unsplash.jpg, anastasios-antoniadis-AMXFr97d00c-unsplash.jpg,
+  pexels-giantasparagus-35627339.jpg, pexels-tomfisk-3856433.jpg
+  — utilisables pour varier une page plus tard si besoin.
